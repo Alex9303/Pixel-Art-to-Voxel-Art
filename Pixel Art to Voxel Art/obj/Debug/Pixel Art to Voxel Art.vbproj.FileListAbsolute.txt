@@ -1,0 +1,11 @@
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\bin\Debug\Pixel Art to Voxel Art.exe.config
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\bin\Debug\Pixel Art to Voxel Art.exe
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\bin\Debug\Pixel Art to Voxel Art.pdb
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\bin\Debug\Pixel Art to Voxel Art.xml
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel Art to Voxel Art.vbprojResolveAssemblyReference.cache
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel_Art_to_Voxel_Art.Form1.resources
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel_Art_to_Voxel_Art.Resources.resources
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel Art to Voxel Art.vbproj.GenerateResource.Cache
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel Art to Voxel Art.exe
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel Art to Voxel Art.xml
+c:\users\alex\documents\visual studio 2015\Projects\Pixel Art to Voxel Art\Pixel Art to Voxel Art\obj\Debug\Pixel Art to Voxel Art.pdb
