@@ -4,6 +4,91 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 Public Class Form1
 
+
+    'WWASH 20161026 20:56 Notes to Alex
+    'You need to comment your code, like a lot. Just imagine you are explaining it to someone and type naturally. It doesn't have to be formal, the more comments you put the shorter they become.
+
+    'Instead of Coding 10 boxes, think about being flexible with the application and allowing someone to add as many as they want.
+    '1. Get rid of those 10 boxes, and the open file dialog on the form.
+    ' I try to perform all my dialogs in line with my code so I don't need to go to a different panel to make changes it's all the same code anyway and it reduces the number of steps.
+    '2. Add a button to "Add Image Layer"
+    '3. Add a flow layout panel
+    '4. The code would look something like this: 
+
+   'We need a list of images to store each one. I will use these to create the pictures, but we need the raw files for processing.
+    Public images as new list(of Bitmap)
+
+    'This sub will allow someone to select an image file, we will add it to the array above, and then create controls on the form so they can see it.
+
+    Private Sub imgAdd() handles btnAddImage.Click
+
+    'They need a file dialog to open the file. 
+    dim odf as openfiledialog as new openfiledialog()
+    odf_open.Title = "Open a PNG File"
+    odf_open.FileName = imgBox.Name.Replace("img_", "Image ")
+    'If they don't click okay then exit
+    If odf_open.ShowDialog() != System.Windows.Forms.DialogResult.OK Then
+    'I can exit the sub and not worry about an Else. If I don't exit, it is an assumed else. Now you don't have nested Ifs
+    exit sub
+    'Good, they clicked okay et's keep moving
+    End if
+
+    'Set a variable to the path of the file, it is fully qualified in case you were wondering
+    '^^ Leave notes to yourself so you don't have to keep researching things
+    'You can declare and set the variable in one swoop, it results in cleaner code.
+    Dim path As String = odf_open.FileName
+
+    'Check early on to see if it is the right size, if it's not then throw an error
+    ' Test the negative first, and exit early that way we are not digging through code to see what the *else* is
+    'Declare variables you only use once inside the sub so you don't have to go hunting and it is very clear what you intend....declare then use.
+
+    Dim img_size As New Size(10, 10)
+    If imgArray(imgIndex).Size != img_size Then
+        MsgBox("Please use a 10 × 10 pixel file.")
+        'See i'm exiting again, nice huh?
+        Exit sub
+    End If
+
+    'We know now that this is the correct size keep trucking
+    'We need to create the raw bitmap and add it to the list of bitmaps
+    dim image as new Bitmap = CType(Image.FromFile(path, True), Bitmap)
+    images.add(image)
+
+    'These images are tiny and impposible to see, so we are going to create another bitmap that is resized to 100X
+    'If you are only using the scaleimg once, then just put the declaration here, that way you're not scrolling through all sorts of code to find out what it is (like I just did)
+    Dim scaleimg As New Size(100, 100)
+    Dim imageScaled As Bitmap = New Bitmap(imgArray(imgIndex), scaleimg)
+    Dim x_move As Integer = 0
+    Dim y_move As Integer = 0
+
+    dim pb as new PictureBox
+    me.THATFLOWLAYOUTPANELISAIDTOCREATEABOVE.Controls.Add(pb)
+    pb.image = imageScaled
+
+    ' I think with this you are just looping through the image to find the color of each pixel and add it to the list box
+    ' Because you didn't comment this section I have no clue what is going on and I am getting very angry. If your laptop is wrapped in duct tape tomorrow, you will know why.
+    For run As Integer = 0 To 100
+                        If y_move = 10 Then
+                            Exit For
+                        End If
+                    curPixColor = image.GetPixel(x_move, y_move)
+                    If x_move = 9 Then
+                            x_move = -1
+                            y_move += 1
+                        End If
+                        x_move += 1
+                        lbx_colors.Items.Add(curPixColor.ToString)
+                        RemoveDuplicatesFromListBox()
+    Next
+
+
+'Because I exited sub, I don't need this two oddly placed End Ifs, they're lonely down here. Try to keep them with their mates.
+'   End If
+'End If
+        
+
+
+            end Sub
     'Dim img1 As Bitmap
     'Dim img2 As Bitmap
     'Dim img3 As Bitmap
@@ -45,9 +130,8 @@ Public Class Form1
     Dim img_longuse As Boolean = False
 
     Dim fs As FileStream
-    Dim path As String
-    Dim scaleimg As New Size(100, 100)
-    Dim img_size As New Size(10, 10)
+    
+    
     Dim curPixColor As Color
     Dim Z_find As String
     Dim D_X As Integer 'Left to Right
